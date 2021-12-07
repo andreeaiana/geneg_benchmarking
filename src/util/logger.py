@@ -4,14 +4,17 @@ import sys
 
 # define setup rules
 def setup_logging(name: str = __name__, log_level: str = None) -> logging.Logger:
-    """Setup basic logging
+    """ Setup basic logging.
 
     Args:
-        name: string variable
-        log_level (str): minimum loglevel for emitting messages
+        name (:obj:`str`, `optional`, defaults to `__name__`):
+            Name of the file to log. 
+        log_level (:obj:`str`, `optional`): 
+            Minimum loglevel for emitting messages.
 
     Returns:
-        logger object
+        :obj:`logging.Logger`:
+            A logger instance.
 
     """
     # define logger
