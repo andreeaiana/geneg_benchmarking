@@ -6,14 +6,14 @@ Benchmarking experiments of different news recommender systems using GeNeG and i
 	- TF-IDF
 	- Word2vec
 	- Transformer
-- Collaborative-based recommenders
+- Collaborative filtering recommenders
 	- Alternating Least Squares (ALS)
 - Knowledge-aware recommenders
 	- RippleNet
 
 ## Usage
 
-Configurations for directories, filepaths, and some model parameters can bse set in [config.py](src/config.py).
+Configurations for directories, filepaths, and some model parameters can be set in [config.py](src/config.py).
 
 ### Content-based and collaborative filtering recommendation models
 Train a model
