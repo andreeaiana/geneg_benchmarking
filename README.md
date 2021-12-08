@@ -13,7 +13,7 @@ Benchmarking experiments of different news recommender systems using GeNeG and i
 
 ## Usage
 
-Configurations for directories, filepaths, and some model parameters can be set in [config.py](src/config.py).
+Configurations for directories, filepaths, and some model parameters can be set in `config.py`.
 
 ### Content-based and collaborative filtering recommendation models
 Train a model
@@ -41,9 +41,9 @@ python -m src.run_ripplenet
 
 
 ## Data
-The data necessary to run the models can be found in [data](data/).
+The data necessary to run the models can be found in the `data` folder.
 
-The article's content is required to train the content-based recommender systems and to compute recommendations. A sample of the news corpus is available in the  [articles file](data/articles.csv). Due to copyright policies, this sample does not contain the abstract and body of the articles.
+The article's content is required to train the content-based recommender systems and to compute recommendations. A sample of the news corpus is available in the  `data/articles.csv` file. Due to copyright policies, this sample does not contain the abstract and body of the articles.
 
 A full version of the news corpus is available [upon request](mailto:andreea@informatik.uni-mannheim.de).
 
