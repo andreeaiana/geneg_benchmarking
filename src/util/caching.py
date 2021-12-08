@@ -4,29 +4,30 @@
 
 import os
 import pickle
+from pathlib import Path
 from typing import Any
 
 
-def create_cache(cache_obj, file: str) -> None:
+def create_cache(cache_obj, file: Path) -> None:
     """ 
     Caches an object to the specified file. 
     
     Args:
         cache_obj (:obj:`Any`):
             Object to be cached.
-        file (:obj:`str`):
+        file (:obj:`Path`):
             Filepath where the object will be cached.
     """
     with open(file, 'wb') as f:
         pickle.dump(cache_obj, f)
 
 
-def load_cache(file: str) -> Any:
+def load_cache(file: Path) -> Any:
     """ 
     Returns the object cached in the given file. 
     
     Args:
-        file (:obj:`str`):
+        file (:obj:`Path`):
             The filepath from which to load the cached object.
 
     Returns:
