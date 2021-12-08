@@ -1,0 +1,11 @@
+pandas
+numpy
+nltk
+fastText
+torch
+tqdm
+scikit-learn
+sentence_transformers
+bs4
+tensorflow==2.5.0
+implicit
