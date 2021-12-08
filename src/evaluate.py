@@ -1,28 +1,45 @@
+# -*- coding: utf-8 -*-
+
 # import libraries
-import pandas as pd
 import argparse
 import numpy as np
 import pickle
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 from tqdm import tqdm
+from typing import List
 
 # import custom Code
 from src.config import FILENAME_TRAIN_RATINGS, MODELS_DIR, DATA_DIR
 from src.models import MODELS
-from src.metrics import auc, topk_eval
+from src.metrics import auc
 from src.util.logger import setup_logging
 from src.fetch_data import get_item_history_from_user
 
-def normalize_scores_with_filter(scores, items2exclude):
-    
+
+def normalize_scores_with_filter(scores: np.ndarray, items2exclude: List) -> np.ndarray:
+    """ 
+    Normalizes scores using min-max scaling. 
+
+    Args:
+        scores (:obj:`np.ndarray`):
+            Scores to normalize.
+        items2exclude (:obj:`List[int]`):
+            List of items to exclude from the score normalization.
+
+    Returns:
+        :obj:`np.ndarray`:
+            Min-max normalized scores.
+    """ 
     scores_filtered = np.delete(scores, items2exclude)
     min_value, max_value = scores_filtered.min(), scores_filtered.max()
     scores_normalized = (scores - min_value) / (max_value - min_value)
     
     return scores_normalized
 
+
 def predict_wrapper(model, row):
-    
+    """ Wrapper for the prediction function of a recommender model. """
+
     # extract information
     user = row[0]
     item = row[1]
@@ -59,8 +76,15 @@ def predict_wrapper(model, row):
     return item_score
     
 
-def evaluate(name):
+def evaluate(name: str) -> None:
+    """ 
+    Evaluation function for recommender models.
 
+    Args:
+        name (:obj:`str`):
+            Name of the model to evaluate.
+
+    """
     # load model 
     logger.info(f'Loading {name} model')
     filename = MODELS_DIR / (name + '.p')
@@ -86,6 +110,7 @@ def evaluate(name):
     logger.info(f"Precision = {precision_val}")
     logger.info(f"Recall = {recall_val}")
     logger.info(f"{accuracy_val} {auc_val} {precision_val} {recall_val} {f1_val}")
+
 
 if __name__ == '__main__':
     

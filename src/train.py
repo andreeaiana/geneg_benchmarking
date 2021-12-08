@@ -1,4 +1,4 @@
-# train.py
+# -*- coding: utf-8 -*-
 
 # import libraries
 import pickle
@@ -62,7 +62,7 @@ def remove_author_line(*, idx: int):
 
 
 def train_model(data, model_name):
-
+    """ Train a recommendation model. """
     logger.info(f'Training {model_name} model')
     model = MODELS[model_name]
     
@@ -104,7 +104,6 @@ if __name__ == '__main__':
 
     # remove author line prior to training
     data[DataFrameColumns.content] = [remove_author_line(idx=idx) for idx in data.index]
-
 
     # if explicit model selected train only on this model
     if model_name:

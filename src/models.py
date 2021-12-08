@@ -1,4 +1,4 @@
-# app.py
+# -*- coding: utf-8 -*-
 
 """
 This python file contains all the models used for ReNewsRs project.

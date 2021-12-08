@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # this file contains all variables that are set by the user and other configuration options
 
 # import libraries
@@ -7,19 +9,20 @@ from pathlib import Path
 from dataclasses import dataclass
 from fasttext.util import download_model
 
-# define directories
+
+# Define directories
 DATA_DIR = Path(__file__).parent.parent / "data"
 MODELS_DIR = Path(__file__).parent.parent / "models"
 LOGS_DIR = Path(__file__).parent.parent / "logs"
 
-# var names
+# Model names
 BASE_NAME_FASTTEXT = 'cc.de.300.bin'
 BASE_NAME_RIPPLENET = 'ripple_net_model.h5'
 
-# parameters
+# Parameters
 K_LIST = [1, 2, 5, 10, 20, 50, 100] # Positions to evaluate top-k recommendation on
 
-# define filenames
+# Define filenames
 FILENAME_ARTICLES = DATA_DIR / "articles.csv"
 FILENAME_USER_ITEM_MATRIX = DATA_DIR / "user_item_matrix.csv"
 FILENAME_URL2NEWS_NODE_MAP = DATA_DIR / "url2news_node_map.p"
@@ -43,12 +46,12 @@ FILENAME_USER_RECOMMENDER_MAPPING = DATA_DIR / 'user_recommender_mapping.csv'
 FILENAME_FASTTEXT_MODEL = MODELS_DIR / BASE_NAME_FASTTEXT
 FILENAME_RIPPLENET_MODEL = MODELS_DIR / BASE_NAME_RIPPLENET
 
-# create directories if they do not exist
+# Create directories if they do not exist
 for directory in [DATA_DIR, MODELS_DIR, LOGS_DIR]:
     if directory.exists() == False:
         directory.mkdir()
 
-# class that corresponds to the column names in dataframe
+# Class that corresponds to the column names in dataframe
 @dataclass        
 class DataFrameColumns:
     author = 'author_person'
@@ -57,21 +60,21 @@ class DataFrameColumns:
     sentiment = 'sentiment_score'
     provenance = 'provenance'
     
-# variables used for replacing certain expressions
+# Variables used for replacing certain expressions
 PLACEHOLDER_OUTLET = 'Medium'
 
-# get stopwords from external sources
+# Get stopwords from external sources
 try:
-    # assign variable
+    # Assign variable
     STOP_WORDS = set(nltk.corpus.stopwords.words('german'))
 
 except Exception:
 
-    # download nltk vocab
+    # Download nltk vocab
     nltk.download('stopwords')
     STOP_WORDS = set(nltk.corpus.stopwords.words('german'))
     
-# download fasttext model
+# Download fasttext model
 if not FILENAME_FASTTEXT_MODEL.exists():
     
     source_filename = Path.cwd() / BASE_NAME_FASTTEXT
