@@ -18,14 +18,12 @@ Configurations for directories, filepaths, and some model parameters can be set 
 ### Content-based and collaborative filtering recommendation models
 Train a model
 ```
-cd src
-python train.py
+python -m src.train
 ```
 
 Evaluate a model
 ```
-cd src
-python evaluate.py
+python -m src.evaluate
 ```
 
 ### RippleNet
