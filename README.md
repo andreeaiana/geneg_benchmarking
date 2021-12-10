@@ -46,7 +46,7 @@ The article's content is required to train the content-based recommender systems
 A full version of the news corpus is available [upon request](mailto:andreea@informatik.uni-mannheim.de).
 
 ## Requirements
-This code is implemented in Python 3. The requirements can be installed from requirements.txt.
+This code is implemented in Python 3. The requirements can be installed from `requirements.txt`.
 
 ```
 pip3 install -r requirements.txt
@@ -59,14 +59,3 @@ Parts of the code were originally forked and adapted from:
 - [RippleNet-TF2](https://github.com/tezignlab/RippleNet-TF2)
 
 We owe many thanks to the authors of the RippleNet-TF2 for making their codes available.
-
-<!-- ## Citation
-If you use this code in your research, please cite:
-
-```
-@misc{iana2021geneg,
-      title={A German News Corpus for Benchmarking Knowledge-Aware News Recommender Systems}, 
-      author={Iana, Andreea and Grote, Alexander and Ludwig, Katharina and Alam, Mehwish and Müller, Phillip and Weinhardt, Christof and Paulheim, Heiko},
-      year={2021}
-}
-``` -->
