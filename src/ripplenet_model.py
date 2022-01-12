@@ -12,7 +12,7 @@ import math
 from tensorflow.python import train
 
 # import custom code
-from src.load_data import LoadData
+from src.ripplenet_data_loader import LoadData
 from src.config import FILENAME_RIPPLENET_MODEL, LOGS_DIR, K_LIST
 from src.util.logger import setup_logging
 
