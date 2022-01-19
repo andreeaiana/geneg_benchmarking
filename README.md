@@ -10,6 +10,7 @@ Benchmarking experiments of different news recommender systems using GeNeG and i
 	- Alternating Least Squares (ALS)
 - Knowledge-aware recommenders
 	- RippleNet
+	- DKN
 
 ## Usage
 
@@ -37,6 +38,28 @@ Train and evaluate RippleNet
 python -m src.run_ripplenet
 ```
 
+### DKN
+Prepare data for DKN
+```
+python -m src.preprocess_dkn
+```
+
+Preprocess news data and train Word2vec model
+```
+python -m src.dkn_news_preprocess
+```
+
+Preprocess entity data and train TransX model
+``` 
+python -m src.prepare_data_for_transx
+python -m src.OpenKE.examples.train_transe (note: you can also choose other KGE methods)
+python -m src.dkn_kg_preprocess
+```
+
+Train and evaluate DKN
+```
+python -m src.run_dkn
+```
 
 ## Data
 The data necessary to run the models can be found in the `data` folder.
@@ -57,5 +80,7 @@ Licensed under the MIT License.
 
 Parts of the code were originally forked and adapted from:
 - [RippleNet-TF2](https://github.com/tezignlab/RippleNet-TF2)
+- [DKN](https://github.com/hwwang55/DKN)
+- [OpenKE](https://github.com/thunlp/OpenKE)
 
-We owe many thanks to the authors of the RippleNet-TF2 for making their codes available.
+We owe many thanks to the authors of RippleNet-TF2, DKN, and OpenKE for making their codes available.

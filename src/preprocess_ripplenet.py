@@ -9,7 +9,7 @@
 import numpy as np
 
 # import custom code
-from src.config import FILENAME_KG, FILENAME_RATINGS_FINAL_TXT, FILENAME_KG_FINAL_TXT, FIELNAME_ENTITY_ID2INDEX, FILENAME_RELATION_ID2INDEX, FILENAME_NEWS_ID2INDEX 
+from src.config import FILENAME_KG, FILENAME_RATINGS_FINAL_TXT, FILENAME_KG_FINAL_TXT, FILENAME_ENTITY_ID2INDEX, FILENAME_RELATION_ID2INDEX, FILENAME_NEWS_ID2INDEX 
 from src.config import DataFrameColumns
 from src.fetch_data import get_raw_articles, get_user_item_matrix, get_url2news_node_map
 from src.util.logger import setup_logging
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     convert_kg()
 
     # Cache the mappings
-    create_cache(entity_id2index, FIELNAME_ENTITY_ID2INDEX)
+    create_cache(entity_id2index, FILENAME_ENTITY_ID2INDEX)
     create_cache(relation_id2index, FILENAME_RELATION_ID2INDEX)
     create_cache(news_id2index, FILENAME_NEWS_ID2INDEX)
     

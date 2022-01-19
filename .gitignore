@@ -137,3 +137,4 @@ logs
 data/articles_complete.csv
 data/kg.p
 data/kg_final.txt
+*.vec
