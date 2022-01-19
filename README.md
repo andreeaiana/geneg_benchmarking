@@ -52,7 +52,7 @@ python -m src.dkn_news_preprocess
 Preprocess entity data and train TransX model
 ``` 
 python -m src.prepare_data_for_transx
-python -m src.OpenKE.examples.train_transe (note: you can also choose other KGE methods)
+python -m src.transx.train_transe (note: you can also choose other KGE methods)
 python -m src.dkn_kg_preprocess
 ```
 
