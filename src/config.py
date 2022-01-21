@@ -27,9 +27,9 @@ BASE_NAME_TRANSR_TRANSE = 'transr_transe.json'
 # Parameters
 K_LIST = [1, 2, 5, 10, 20, 50, 100] # Positions to evaluate top-k recommendation on
 DKN_KGE_METHOD = "TransE"
-DKN_KGE_ENTITY_EMBEDDING_DIM = 100
+DKN_KGE_ENTITY_EMBEDDING_DIM = 50
 MAX_ARTICLE_LENGTH = 400
-W2V_WORD_EMBEDDING_DIM = 100
+W2V_WORD_EMBEDDING_DIM = 200
 
 
 # Define filenames

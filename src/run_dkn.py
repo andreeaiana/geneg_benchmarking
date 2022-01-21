@@ -21,11 +21,11 @@ parser.add_argument('--transform', type=bool, default=True, help='whether to tra
 parser.add_argument('--use_context', type=bool, default=True, help='whether to use context embeddings')
 parser.add_argument('--max_click_history', type=int, default=4, help='number of sampled click history for each user')
 parser.add_argument('--n_filters', type=int, default=100, help='number of filters for each size in KCNN')
-parser.add_argument('--filter_sizes', type=int, default=[1, 2, 3, 4], nargs='+',
+parser.add_argument('--filter_sizes', type=int, default=[1, 2], nargs='+',
                     help='list of filter sizes, e.g., --filter_sizes 2 3')
 parser.add_argument('--l2_weight', type=float, default=0.01, help='weight of l2 regularization')
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
-parser.add_argument('--batch_size', type=int, default=128, help='number of samples in one batch')
+parser.add_argument('--batch_size', type=int, default=512, help='number of samples in one batch')
 parser.add_argument('--n_epochs', type=int, default=1000, help='number of training epochs')
 
 args = parser.parse_args()

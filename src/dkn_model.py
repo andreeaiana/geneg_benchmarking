@@ -7,7 +7,7 @@
 import os
 import numpy as np
 import tensorflow as tf
-from sklearn.metrics import roc_auc_score, accuracy_score, f1_score
+from sklearn.metrics import roc_auc_score, accuracy_score, f1_score, roc_curve
 
 # import custom code
 from src.config import DATA_DIR
@@ -162,8 +162,9 @@ class DKN(object):
     def eval(self, sess, feed_dict):
         labels, scores, loss = sess.run([self.labels, self.scores, self.loss], feed_dict)
         auc = roc_auc_score(y_true=labels, y_score=scores)
-        predictions = [1 if i >= 0.5 else 0 for i in scores]
+        predictions = [1 if i >= 0.52 else 0 for i in scores]
         acc = accuracy_score(labels, predictions)
-        micro_f1 = f1_score(labels, predictions, average='micro')
-        macro_f1 = f1_score(labels, predictions, average='macro') 
-        return loss, auc, acc, micro_f1, macro_f1
+        f1 = f1_score(labels, predictions)
+        # fpr, tpr, thresholds = roc_curve(labels, scores, pos_label=1)
+        # print(thresholds[np.argmin(np.abs(fpr+tpr-1))])
+        return loss, auc, acc, f1

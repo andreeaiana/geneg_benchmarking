@@ -46,12 +46,12 @@ def train(args, train_data, val_data):
                 model.train(sess, get_feed_dict(model, train_data, start, end))
 
             # evaluation
-            train_loss, train_auc, train_acc, train_micro_f1, train_macro_f1 = model.eval(sess, get_feed_dict(model, train_data, 0, train_data.size))
-            val_loss, val_auc, val_acc, val_micro_f1, val_macro_f1  = model.eval(sess, get_feed_dict(model, val_data, 0, val_data.size))
+            train_loss, train_auc, train_acc, train_f1_score = model.eval(sess, get_feed_dict(model, train_data, 0, train_data.size))
+            val_loss, val_auc, val_acc, val_f1_score  = model.eval(sess, get_feed_dict(model, val_data, 0, val_data.size))
    
             logger.info(
-                    "Epoch: {:04d} \t train_loss= {:.5f} \t train_auc= {:.5f} \t train_acc= {:.5f} \t train_micro_f1= {:.5f} \t train_macro_f1= {:.5f} \t val_loss= {:.5f} \t val_auc= {:.5f} \t val_acc= {:.5f} \t val_micro_f1= {:.5f} \t val_macro_f1= {:.5f}".format(
-                        step + 1, train_loss, train_auc, train_acc, train_micro_f1, train_macro_f1, val_loss, val_auc, val_acc, val_micro_f1, val_macro_f1)
+                    "Epoch: {:04d} \t train_loss= {:.5f} \t train_auc= {:.5f} \t train_acc= {:.5f} \t train_f1_score= {:.5f} \t val_loss= {:.5f} \t val_auc= {:.5f} \t val_acc= {:.5f} \t val_f1_score= {:.5f}".format(
+                        step + 1, train_loss, train_auc, train_acc, train_f1_score, val_loss, val_auc, val_acc, val_f1_score)
                 )
 
             val_losses.append(val_loss)
@@ -79,7 +79,7 @@ def evaluate(args, test_data):
         except FileNotFoundError:
             logger.info('Model checkpoint does not exist. The model might not be trained yet or the checkpoint is invalid.')
 
-        test_loss, test_auc, test_acc, test_micro_f1, test_macro_f1 = model.eval(sess, get_feed_dict(model, test_data, 0, test_data.size))
-        logger.info("test_loss= {:.5f} \t test_auc= {:.5f} \t test_acc= {:.5f} \t test_micro_f1= {:.5f} \t test_macro_f1= {:.5f}".format(
-                    test_loss, test_auc, test_acc, test_micro_f1, test_macro_f1)
+        test_loss, test_auc, test_acc, test_f1_score = model.eval(sess, get_feed_dict(model, test_data, 0, test_data.size))
+        logger.info("test_loss= {:.5f} \t test_auc= {:.5f} \t test_acc= {:.5f} \t test_f1_score= {:.5f}".format(
+                    test_loss, test_auc, test_acc, test_f1_score)
                 )
