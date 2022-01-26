@@ -76,7 +76,7 @@ pip3 install -r requirements.txt
 ```
 
 ## License
-Licensed under the MIT License.
+The code is licensed under the MIT License. The data and knowledge graph files are licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 Parts of the code were originally forked and adapted from:
 - [RippleNet-TF2](https://github.com/tezignlab/RippleNet-TF2)
